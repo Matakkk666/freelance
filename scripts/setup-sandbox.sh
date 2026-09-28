@@ -29,8 +29,9 @@ start_postgres_with_apt() {
     as_root env DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql
   fi
 
-  local version cluster
-  read -r version cluster _ < <(pg_lsclusters --no-header | head -n1)
+  local version="" cluster=""
+  # `read` fails on empty input; with `set -e` that would abort when no cluster exists yet.
+  read -r version cluster _ < <(pg_lsclusters --no-header | head -n1) || true
   if [ -z "${version:-}" ]; then
     log "Creating PostgreSQL cluster"
     version=$(ls /usr/lib/postgresql | sort -V | tail -n1)
