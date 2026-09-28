@@ -2,7 +2,7 @@
 
 ## Задача
 
-T-XX: <название> (docs/roadmap.md)
+T-XX: <название> (docs/roadmap.md). Требования: R-XX
 
 ## Что сделано
 
