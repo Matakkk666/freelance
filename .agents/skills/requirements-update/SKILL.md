@@ -16,6 +16,8 @@ description: How to process new or changed customer requirements, answers to ope
 
 Положи текст как есть в `docs/client-input/YYYY-MM-DD-<slug>.md` по шаблону из
 [docs/client-input/README.md](../../../docs/client-input/README.md) и добавь строку в список там же.
+Если это ответ на анкету (например, `2026-09-30-questionnaire-2.md`), сошлись на неё: в заголовках
+разделов анкеты указано, какие вопросы Q-NN они закрывают. Статус анкеты поменяй на «получен ответ».
 ПДн, ключи и пароли замени на `[удалено]`. Если в тексте были ключи, скажи владельцу, что
 их нужно перевыпустить и передавать через env.
 
