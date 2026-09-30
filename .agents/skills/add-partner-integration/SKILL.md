@@ -1,6 +1,6 @@
 ---
 name: add-partner-integration
-description: Step-by-step guide for adding an adapter for an external service (crypto processing, eSIM, gift cards, crypto cards, VPN, KYC) or replacing a mock with a real client. Use whenever code talks to a third-party API.
+description: Step-by-step guide for adding an adapter for an external service (crypto processing, exchange widget, eSIM, gift cards, crypto cards, VPN) or replacing a mock with a real client. Use whenever code talks to a third-party API.
 ---
 
 # Интеграция с партнёром
