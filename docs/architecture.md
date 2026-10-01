@@ -303,7 +303,8 @@ jobs(id, kind, payload JSONB, status 'queued'|'running'|'done'|'failed',
 
 SPA на React, mobile-first. Разделы: `/` (главная и баланс), `/wallet` (пополнение),
 `/history`, `/subscription`, `/referrals`, `/shop` (eSIM, подарочные карты), `/profile`,
-`/admin/*`. Все данные только через `/api/v1`. Подробнее — [frontend/AGENTS.md](../frontend/AGENTS.md).
+`/admin/*`. Все данные только через `/api/v1`. Подробнее — [frontend/AGENTS.md](../frontend/AGENTS.md),
+правила дизайна — [design.md](design.md).
 
 ## 13. Окружения и деплой
 
