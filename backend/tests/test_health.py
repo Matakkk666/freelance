@@ -1,4 +1,4 @@
-from fastapi import status
+from fastapi import FastAPI, status
 from httpx import ASGITransport, AsyncClient
 from pydantic import SecretStr
 
@@ -27,3 +27,9 @@ async def test_health_reports_unavailable_database(settings: Settings) -> None:
 
     assert response.status_code == status.HTTP_503_SERVICE_UNAVAILABLE
     assert response.json() == {"status": "error", "database": "unavailable"}
+
+
+def test_asgi_entrypoint_exposes_app() -> None:
+    from app import asgi  # noqa: PLC0415  # import builds the app from env, keep it test-local
+
+    assert isinstance(asgi.app, FastAPI)
