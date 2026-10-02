@@ -58,3 +58,6 @@ src/
 - Vitest + Testing Library, файл `*.test.tsx` рядом с компонентом.
 - Проверяется то, что видит пользователь (`findByText`, `getByRole`), а не внутреннее состояние.
 - Сеть подменяется через `vi.stubGlobal("fetch", ...)`, после теста — `vi.unstubAllGlobals()`.
+- Тесты идут в случайном порядке (`sequence.shuffle`) и не должны зависеть друг от друга.
+- `pnpm test` (и `make frontend-test`) проверяет покрытие `src/` не ниже 80% по строкам, веткам
+  и функциям.

@@ -62,7 +62,7 @@ backend-typecheck:
 	$(UV) mypy
 
 backend-test:
-	$(UV) pytest
+	$(UV) pytest --cov --cov-report=term-missing
 
 frontend-lint:
 	$(PNPM) lint

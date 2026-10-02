@@ -19,6 +19,8 @@ dev = [
     "mypy>=2.3.1",
     "pytest>=9.1.1",
     "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "pytest-randomly>=5.0.0",
     "ruff>=0.16.9",
 ]
 
@@ -33,11 +35,15 @@ target-version = "py312"
 select = [
   "E", "W", "F", "I", "B", "UP", "N", "S", "A", "C4", "DTZ", "T20", "SIM", "RET", "PT",
   "ASYNC", "TID", "RUF", "PL", "PERF", "FBT",
+  "C90", "ERA", "ARG", "BLE", "PIE",
 ]
 ignore = [
   "PLR0913", # too many arguments: explicit keyword arguments are fine in services
   "PERF401", # comprehension vs loop is a readability call
 ]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101", "PLR2004", "S105", "S106"]
@@ -61,3 +67,14 @@ asyncio_default_fixture_loop_scope = "session"
 asyncio_default_test_loop_scope = "session"
 addopts = "-ra --strict-markers --strict-config"
 filterwarnings = ["error"]
+
+# Coverage is enforced by `make backend-test` (pytest --cov); a plain `pytest` run skips it.
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true
+exclude_also = ["if TYPE_CHECKING:", "raise NotImplementedError"]
